@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Start' %}{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'dist/styles/home.css' %}">
+{% endblock %}
+
+{% block body_class %}text-center{% endblock %}
+
+{% block body_content %}
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        Status: OK
+    </div>
+    hola carlos
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'dist/scripts/phone-verification.js' %}"></script>
+{% endblock %}

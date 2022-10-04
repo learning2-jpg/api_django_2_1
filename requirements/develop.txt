@@ -1,0 +1,13 @@
+# Local development dependencies go here
+
+#
+#  D E B U G I N G
+#
+ipdb==0.13.9  # https://github.com/gotcha/ipdb
+prompt_toolkit==2.0.10  # Fix for ipython
+ipython==7.23.1  # https://github.com/ipython/ipython
+django-debug-toolbar==3.2.1  # https://github.com/jazzband/
+django-extensions==3.1.3  # https://github.com/django-extensions/
+django-querycount==0.7  # https://github.com/bradmontgomery/
+
+

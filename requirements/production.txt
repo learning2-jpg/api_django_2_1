@@ -1,0 +1,11 @@
+gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+
+# Statics & Media
+django-s3-storage==0.13.4  # https://github.com/etianen/django-s3-storage
+
+# Emails
+django-anymail[mailgun]==8.1  # https://github.com/anymail/django-anymail
+
+# Utils
+python-dateutil==2.8.1  # Temporal Fix for storages
+

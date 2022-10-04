@@ -1,0 +1,56 @@
+{% extends "layouts/base.html" %}
+{% load static i18n %}
+
+{% block body_class %}text-center{% endblock %}
+
+{% block extra_styles %}
+  <link rel="stylesheet" href="{% static "dist/styles/transactions.css" %}">
+{% endblock %}
+
+{% block body_content %}
+    <main class="container transaction-container" id="{% block app_id %}{% endblock %}">
+      <div class="transaction-form">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <form method="{% block form_method %}post{% endblock %}" action="{% block form_action %}.{% endblock %}">
+              {% block form_header %}
+                <div class="logo-container">
+                  <img src="{% static 'img/logo_light.png' %}" alt="Logo" class="logo">
+                </div>
+              {% endblock %}
+              <h3 class="form-title {% block form_title_class %}{% endblock %}">
+                {% block form_title %}{% endblock %}
+              </h3>
+              {% block form_content %}
+                {# this content changes by transaction #}
+              {% endblock %}
+            </form>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      </div>
+    </main>
+    {% include "transactions/partials/footer.html" %}
+{% endblock %}
+{% block scripts %}
+  <script>
+    let apiClient = null;
+    window.onload = function() {
+      const inputs = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+        return new mdc.textField.MDCTextField(el);
+      });
+      const buttons = [].map.call(document.querySelectorAll('.mdc-button'), function(el) {
+        return new mdc.ripple.MDCRipple(el);
+      });
+      const csrftoken = Cookies.get('csrftoken');
+      apiClient = axios.create({
+        baseURL: '/api/v1',
+        timeout: 1000,
+        headers: {'X-CSRFToken': csrftoken}
+      });
+    };
+  </script>
+{% endblock %}
+
+
